@@ -47,10 +47,10 @@ export default function Page() {
                style={{
                   transform: `translateX(${currScroll}px) translateY(${currScroll}px) rotateZ(${currProgress}turn)`,
                }}
-               className="z-[2] text-pretty text-center text-black/80 md:text-start"
+               className="z-[2] text-pretty text-center md:text-start"
             >
                <h1
-                  className={`${JaroFont.className} text-4xl tracking-wider text-blue-100 text-transparent drop-shadow-md md:text-7xl`}
+                  className={`${JaroFont.className} text-4xl tracking-wider text-blue-100 drop-shadow-md md:text-7xl`}
                >
                   Hi there,
                   <br />
