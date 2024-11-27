@@ -36,12 +36,10 @@ export default function Page() {
                style={{
                   transform: `translateX(${-currScroll}px) translateY(${currScroll}px) rotateZ(${-currProgress}turn)`,
                }}
-               className={`relative aspect-square w-5/12 rounded-full bg-slate-500 md:ml-10 md:w-1/3`}
+               className={`relative top-0 aspect-square w-5/12 rounded-full bg-slate-500 before:absolute before:z-[1] before:aspect-square before:h-1/2 before:-translate-x-1/4 before:-translate-y-1/3 before:-rotate-[30deg] before:bg-[url(/crown.png)] before:bg-contain before:bg-center before:bg-no-repeat before:content-[""] md:ml-10 md:w-1/3`}
             >
                <Image
-                  src={
-                     "https://plus.unsplash.com/premium_photo-1677545182067-26ac518ef64f?q=80&w=1556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  }
+                  src={"/cat.avif"}
                   fill
                   className="aspect-square h-52 rounded-full border-2 object-cover md:border-8"
                   alt="Me"
@@ -53,12 +51,12 @@ export default function Page() {
                }}
                className="z-[2] text-pretty text-center text-black/80 md:text-start"
             >
-               <h1 className="text-3xl font-bold md:text-7xl">
+               <h1 className="text-4xl font-bold md:text-7xl">
                   Hello, I&apos;m
                   <br />
-                  Ben
+                  <div className="animate-bounce">Ben</div>
                </h1>
-               <h2 className="mt-5 text-2xl font-semibold">
+               <h2 className="mt-5 text-3xl">
                   Welcome to my personal portfolio website.
                </h2>
             </div>
@@ -68,7 +66,7 @@ export default function Page() {
             <Image
                src={"/cloud.png"}
                style={{
-                  transform: `translateX(${-currScroll}px) translateY(${currScroll}px)`,
+                  transform: `translateX(${-currScroll}px)`,
                }}
                className="absolute bottom-[130%] left-0 z-[1] aspect-auto w-7/12 object-cover md:bottom-full md:w-5/12"
                alt="Cloud"
@@ -78,7 +76,7 @@ export default function Page() {
             <Image
                src={"/cloud.png"}
                style={{
-                  transform: `translateX(${currScroll}px) translateY(${currScroll}px)`,
+                  transform: `translateX(${currScroll}px)`,
                }}
                className="absolute bottom-full right-0 z-[1] aspect-auto w-7/12 object-cover md:w-5/12"
                alt="Cloud"
@@ -90,10 +88,10 @@ export default function Page() {
                style={{ transform: `translateY(${-currScroll * 3}px)` }}
             >
                <Image
-                  src={"/airplane.png"}
+                  src={"/airplane2.png"}
                   alt="Airplane"
                   fill
-                  className="object-cover"
+                  className="object-contain"
                />
             </div>
             {/* --------------- ABOUT --------------- */}
