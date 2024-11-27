@@ -2,9 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { useMotionValueEvent, useScroll, useSpring } from "motion/react";
-import localFont from "next/font/local";
-
-const ParkinsansFont = localFont({ src: "../fonts/Parkinsans.ttf" });
+import { JaroFont, ParkinsansFont } from "@/fonts/font";
 
 export default function Page() {
    const { scrollY, scrollYProgress } = useScroll();
@@ -36,12 +34,12 @@ export default function Page() {
                style={{
                   transform: `translateX(${-currScroll}px) translateY(${currScroll}px) rotateZ(${-currProgress}turn)`,
                }}
-               className={`relative top-0 aspect-square w-5/12 rounded-full bg-slate-500 before:absolute before:z-[1] before:aspect-square before:h-1/2 before:-translate-x-1/4 before:-translate-y-1/3 before:-rotate-[30deg] before:bg-[url(/crown.png)] before:bg-contain before:bg-center before:bg-no-repeat before:content-[""] md:ml-10 md:w-1/3`}
+               className={`relative top-0 aspect-square w-5/12 rounded-full shadow-md before:absolute before:z-[1] before:aspect-square before:h-1/2 before:-translate-x-1/4 before:-translate-y-1/3 before:-rotate-[30deg] before:bg-[url(/crown.png)] before:bg-contain before:bg-center before:bg-no-repeat before:content-[""] md:ml-10 md:w-1/3`}
             >
                <Image
-                  src={"/cat.avif"}
+                  src="/cat.avif"
                   fill
-                  className="aspect-square h-52 rounded-full border-2 object-cover md:border-8"
+                  className="aspect-square h-52 rounded-full border-4 object-cover"
                   alt="Me"
                />
             </div>
@@ -51,18 +49,21 @@ export default function Page() {
                }}
                className="z-[2] text-pretty text-center text-black/80 md:text-start"
             >
-               <h1 className="text-4xl font-bold md:text-7xl">
-                  Hello, I&apos;m
+               <h1
+                  className={`${JaroFont.className} text-4xl tracking-wider text-blue-100 text-transparent drop-shadow-md md:text-7xl`}
+               >
+                  Hi there,
                   <br />
-                  <div className="animate-bounce">Ben</div>
+                  I&apos;m
+                  <span> Ben</span>
                </h1>
-               <h2 className="mt-5 text-3xl">
-                  Welcome to my personal portfolio website.
+               <h2 className="mt-5 text-pretty text-2xl font-medium md:text-4xl">
+                  A Full-Stack Web Developer
                </h2>
             </div>
          </div>
 
-         <div className="relative min-h-screen">
+         <div className="relative min-h-screen bg-[#B3C8CF]">
             <Image
                src={"/cloud.png"}
                style={{
@@ -95,12 +96,18 @@ export default function Page() {
                />
             </div>
             {/* --------------- ABOUT --------------- */}
-            <nav className="sticky top-0 h-20 bg-[#89A8B2] shadow-lg"></nav>
+            <nav className="sticky top-0 flex h-20 items-center justify-between border-b-2 border-t-2 border-b-slate-700 bg-[#89A8B2] shadow-lg md:px-10">
+               <div className={`${JaroFont.className} text-5xl`}>About Me</div>
+            </nav>
          </div>
 
          {/* --------------- Projects --------------- */}
 
-         <div className="min-h-screen"></div>
+         <div className="min-h-screen">
+            <nav className="sticky top-0 flex h-20 items-center justify-between border-b-2 border-t-2 border-b-slate-700 bg-[#89A8B2] shadow-lg md:px-10">
+               <div className={`${JaroFont.className} text-5xl`}>Projets</div>
+            </nav>
+         </div>
       </>
    );
 }
