@@ -7,15 +7,24 @@ import localFont from "next/font/local";
 const ParkinsansFont = localFont({ src: "../fonts/Parkinsans.ttf" });
 
 export default function Page() {
-   const { scrollY } = useScroll();
-   const spring = useSpring(0, { stiffness: 100, damping: 30 });
+   const { scrollY, scrollYProgress } = useScroll();
+   const spring = useSpring(0, { stiffness: 100, damping: 20 });
+   const progressSpring = useSpring(0, { stiffness: 100, damping: 20 });
    const [currScroll, setCurrScroll] = useState(0);
+   const [currProgress, setCurrProgress] = useState(0);
 
    useMotionValueEvent(scrollY, "change", (current) => {
       spring.set(current);
    });
    useMotionValueEvent(spring, "change", (current) => {
       setCurrScroll(current);
+   });
+
+   useMotionValueEvent(scrollYProgress, "change", (curr) => {
+      progressSpring.set(curr * 0.5);
+   });
+   useMotionValueEvent(progressSpring, "change", (curr) => {
+      setCurrProgress(curr);
    });
 
    return (
@@ -25,9 +34,9 @@ export default function Page() {
          >
             <div
                style={{
-                  transform: `translateX(${-currScroll}px) translateY(${currScroll}px)`,
+                  transform: `translateX(${-currScroll}px) translateY(${currScroll}px) rotateZ(${-currProgress}turn)`,
                }}
-               className={`relative aspect-square w-5/12 rounded-full bg-slate-500 md:w-1/3`}
+               className={`relative aspect-square w-5/12 rounded-full bg-slate-500 md:ml-10 md:w-1/3`}
             >
                <Image
                   src={
@@ -40,9 +49,9 @@ export default function Page() {
             </div>
             <div
                style={{
-                  transform: `translateX(${currScroll}px) translateY(${currScroll}px`,
+                  transform: `translateX(${currScroll}px) translateY(${currScroll}px) rotateZ(${currProgress}turn)`,
                }}
-               className="z-[1] text-pretty text-center text-black/80 md:text-start"
+               className="z-[2] text-pretty text-center text-black/80 md:text-start"
             >
                <h1 className="text-3xl font-bold md:text-7xl">
                   Hello, I&apos;m
@@ -57,17 +66,21 @@ export default function Page() {
 
          <div className="relative min-h-screen">
             <Image
-               src={"/cloud1.png"}
-               style={{ transform: `translateX(${-currScroll}px)` }}
-               className="absolute bottom-[130%] left-0 aspect-auto w-4/12 object-cover md:bottom-full"
+               src={"/cloud.png"}
+               style={{
+                  transform: `translateX(${-currScroll}px) translateY(${currScroll}px)`,
+               }}
+               className="absolute bottom-[130%] left-0 z-[1] aspect-auto w-7/12 object-cover md:bottom-full md:w-5/12"
                alt="Cloud"
                height={702}
                width={1024}
             />
             <Image
-               src={"/cloud1.png"}
-               style={{ transform: `translateX(${currScroll}px)` }}
-               className="absolute bottom-full right-0 aspect-auto w-1/2 object-cover"
+               src={"/cloud.png"}
+               style={{
+                  transform: `translateX(${currScroll}px) translateY(${currScroll}px)`,
+               }}
+               className="absolute bottom-full right-0 z-[1] aspect-auto w-7/12 object-cover md:w-5/12"
                alt="Cloud"
                height={702}
                width={1024}
