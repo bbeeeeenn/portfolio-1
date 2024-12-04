@@ -79,7 +79,7 @@ export default function Page() {
                   I&apos;m
                   <span> Ben</span>
                </h1>
-               <h2 className="mt-5 text-pretty text-2xl font-medium md:text-4xl">
+               <h2 className="mt-5 text-pretty text-2xl font-semibold md:text-4xl">
                   A Full-Stack Web Developer
                </h2>
             </motion.div>
@@ -117,7 +117,7 @@ export default function Page() {
                }}
                className="absolute top-8 z-10 aspect-[1200/633] w-full"
             >
-               <Image src={"/airplane2.png"} alt="Airplane" fill />
+               <Image src={"/airplane.png"} alt="Airplane" fill />
             </motion.div>
 
             <nav className="sticky top-0 flex h-14 items-center justify-between border-b-2 border-t-2 border-b-slate-700 bg-[#89A8B2] px-5 shadow-lg md:h-20 md:px-10">
