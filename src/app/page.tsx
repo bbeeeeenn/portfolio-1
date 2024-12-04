@@ -86,7 +86,7 @@ export default function Page() {
          </div>
 
          {/* --------------- ABOUT --------------- */}
-         <div className="relative min-h-screen bg-[#B3C8CF]">
+         <div className="relative min-h-screen">
             {/* Cloud 1 */}
             <motion.div
                style={{
@@ -134,7 +134,7 @@ export default function Page() {
          <div className="min-h-screen">
             <nav className="sticky top-0 flex h-14 items-center justify-between border-b-2 border-t-2 border-b-slate-700 bg-[#89A8B2] px-5 shadow-lg md:h-20 md:px-10">
                <div className={`${JaroFont.className} text-3xl md:text-5xl`}>
-                  Projets
+                  Projects
                </div>
             </nav>
          </div>

@@ -12,7 +12,7 @@ export default function RootLayout({
 }>) {
    return (
       <html lang="en" className="snap-y snap-proximity scroll-smooth">
-         <body className={"select-none overflow-x-hidden bg-[#89A8B2]"}>
+         <body className={"select-none overflow-x-hidden bg-[#B3C8CF]"}>
             {children}
          </body>
       </html>
