@@ -120,11 +120,11 @@ export default function Page() {
                <Image src={"/airplane.png"} alt="Airplane" fill />
             </motion.div>
 
-            <nav className="sticky top-0 flex h-14 items-center justify-between border-b-2 border-t-2 border-b-slate-700 bg-[#89A8B2] px-5 shadow-lg md:h-20 md:px-10">
+            <div className="sticky top-0 flex h-14 items-center justify-between border-b-2 border-t-2 border-b-slate-700 bg-[#89A8B2] px-5 shadow-lg md:h-20 md:px-10">
                <div className={`${JaroFont.className} text-3xl md:text-5xl`}>
                   About Me
                </div>
-            </nav>
+            </div>
 
             <About />
          </div>
@@ -132,11 +132,11 @@ export default function Page() {
          {/* --------------- Projects --------------- */}
 
          <div className="min-h-screen">
-            <nav className="sticky top-0 flex h-14 items-center justify-between border-b-2 border-t-2 border-b-slate-700 bg-[#89A8B2] px-5 shadow-lg md:h-20 md:px-10">
+            <div className="sticky top-0 flex h-14 items-center justify-between border-b-2 border-t-2 border-b-slate-700 bg-[#89A8B2] px-5 shadow-lg md:h-20 md:px-10">
                <div className={`${JaroFont.className} text-3xl md:text-5xl`}>
                   Projects
                </div>
-            </nav>
+            </div>
          </div>
       </>
    );
